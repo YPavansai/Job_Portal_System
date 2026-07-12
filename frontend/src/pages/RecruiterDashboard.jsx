@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { Briefcase, Users, PlusCircle, CheckCircle2, ShieldAlert, FileText, Download, Calendar, Mail, Phone, Edit, X, User, MapPin, Check, Search } from 'lucide-react';
 
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8080').replace('/api', '');
+
 const RecruiterDashboard = () => {
   const { user } = useAuth();
 
@@ -606,7 +608,7 @@ const RecruiterDashboard = () => {
                               
                               {app.resumeUrl && (
                                 <a 
-                                  href={`http://127.0.0.1:8080${app.resumeUrl}`}
+                                  href={`${API_BASE_URL}${app.resumeUrl}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="btn btn-outline"
@@ -767,7 +769,7 @@ const RecruiterDashboard = () => {
                   <div>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Candidate Resume</span>
                     <a 
-                      href={`http://127.0.0.1:8080${selectedApp.resumeUrl}`} 
+                      href={`${API_BASE_URL}${selectedApp.resumeUrl}`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="btn btn-outline" 

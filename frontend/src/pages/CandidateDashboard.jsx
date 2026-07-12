@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { User, Briefcase, FileText, CheckCircle2, ShieldAlert, Upload, Phone, Edit, Calendar, MapPin, Eye, X, Download } from 'lucide-react';
 
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8080').replace('/api', '');
+
 const CandidateDashboard = () => {
   const { user } = useAuth();
 
@@ -295,7 +297,7 @@ const CandidateDashboard = () => {
                               </button>
                               {app.resumeUrl && (
                                 <a 
-                                  href={`http://127.0.0.1:8080${app.resumeUrl}`}
+                                  href={`${API_BASE_URL}${app.resumeUrl}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="btn btn-outline"
@@ -415,7 +417,7 @@ const CandidateDashboard = () => {
                     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
                       {resumeUrl ? (
                         <a 
-                          href={`http://127.0.0.1:8080${resumeUrl}`} 
+                          href={`${API_BASE_URL}${resumeUrl}`} 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="btn btn-outline" 
@@ -643,7 +645,7 @@ const CandidateDashboard = () => {
               <div>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Submitted Resume</span>
                 <a 
-                  href={`http://127.0.0.1:8080${selectedApp.resumeUrl}`} 
+                  href={`${API_BASE_URL}${selectedApp.resumeUrl}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'var(--primary)', fontWeight: 600, fontSize: '0.9rem' }}

@@ -4,7 +4,10 @@ import axios from 'axios';
 const AuthContext = createContext(null);
 
 // Configure backend API base URL
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8080/api';
+let API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8080/api';
+if (API_URL && !API_URL.endsWith('/api')) {
+  API_URL = `${API_URL}/api`;
+}
 axios.defaults.baseURL = API_URL;
 
 export const AuthProvider = ({ children }) => {
