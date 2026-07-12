@@ -9,6 +9,7 @@ if (API_URL && !API_URL.endsWith('/api')) {
   API_URL = `${API_URL}/api`;
 }
 axios.defaults.baseURL = API_URL;
+console.log("API URL =", API_URL);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
