@@ -30,11 +30,11 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Ensure Admin user always exists
-        if (!userRepository.existsByEmail("admin@example.com")) {
+        if (!userRepository.existsByEmail("admin@gmail.com")) {
             User admin = User.builder()
                     .name("System Admin")
-                    .email("admin@example.com")
-                    .password(passwordEncoder.encode("password123"))
+                    .email("admin@gmail.com")
+                    .password(passwordEncoder.encode("admin"))
                     .role(Role.ADMIN)
                     .build();
             userRepository.save(admin);

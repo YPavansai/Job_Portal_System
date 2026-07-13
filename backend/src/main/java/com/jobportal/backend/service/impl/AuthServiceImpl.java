@@ -73,6 +73,10 @@ public class AuthServiceImpl implements AuthService {
             throw new BadRequestException("Email is already registered!");
         }
 
+        if (registerRequest.getRole() == Role.ADMIN) {
+            throw new BadRequestException("Admin registration is not allowed!");
+        }
+
         if (registerRequest.getRole() == Role.RECRUITER && 
             (registerRequest.getCompanyName() == null || registerRequest.getCompanyName().trim().isEmpty())) {
             throw new BadRequestException("Company name is required for Recruiters!");

@@ -131,17 +131,17 @@ const Auth = () => {
             <div className="form-group">
               <label className="form-label">Register As</label>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <label style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', gap: '0.25rem', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '0.75rem 0.25rem', cursor: 'pointer', backgroundColor: role === 'CANDIDATE' ? 'var(--primary-glow)' : 'transparent', borderColor: role === 'CANDIDATE' ? 'var(--primary)' : 'var(--border-color)', transition: 'all 0.2s' }}>
-                  <input 
-                    type="radio" 
-                    name="role" 
-                    checked={role === 'CANDIDATE'} 
-                    onChange={() => setRole('CANDIDATE')} 
-                    style={{ accentColor: 'var(--primary)' }}
-                  />
-                  <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Candidate</span>
-                </label>
-                <label style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', gap: '0.25rem', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '0.75rem 0.25rem', cursor: 'pointer', backgroundColor: role === 'RECRUITER' ? 'var(--primary-glow)' : 'transparent', borderColor: role === 'RECRUITER' ? 'var(--primary)' : 'var(--border-color)', transition: 'all 0.2s' }}>
+                 <label style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', gap: '0.25rem', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '0.75rem 0.25rem', cursor: 'pointer', backgroundColor: role === 'CANDIDATE' ? 'var(--primary-glow)' : 'transparent', borderColor: role === 'CANDIDATE' ? 'var(--primary)' : 'var(--border-color)', transition: 'background-color 0.2s ease, border-color 0.2s ease' }}>
+                   <input 
+                     type="radio" 
+                     name="role" 
+                     checked={role === 'CANDIDATE'} 
+                     onChange={() => setRole('CANDIDATE')} 
+                     style={{ accentColor: 'var(--primary)' }}
+                   />
+                   <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Candidate</span>
+                 </label>
+                 <label style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', gap: '0.25rem', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '0.75rem 0.25rem', cursor: 'pointer', backgroundColor: role === 'RECRUITER' ? 'var(--primary-glow)' : 'transparent', borderColor: role === 'RECRUITER' ? 'var(--primary)' : 'var(--border-color)', transition: 'background-color 0.2s ease, border-color 0.2s ease' }}>
                   <input 
                     type="radio" 
                     name="role" 
@@ -150,16 +150,6 @@ const Auth = () => {
                     style={{ accentColor: 'var(--primary)' }}
                   />
                   <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Employer</span>
-                </label>
-                <label style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', gap: '0.25rem', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '0.75rem 0.25rem', cursor: 'pointer', backgroundColor: role === 'ADMIN' ? 'var(--primary-glow)' : 'transparent', borderColor: role === 'ADMIN' ? 'var(--primary)' : 'var(--border-color)', transition: 'all 0.2s' }}>
-                  <input 
-                    type="radio" 
-                    name="role" 
-                    checked={role === 'ADMIN'} 
-                    onChange={() => setRole('ADMIN')} 
-                    style={{ accentColor: 'var(--primary)' }}
-                  />
-                  <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Admin</span>
                 </label>
               </div>
             </div>

@@ -156,7 +156,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Control Bar (Search & Filter) */}
-      <div className="glass" style={{ padding: '1.25rem', borderRadius: 'var(--radius-lg)', display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+      <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: 'var(--radius-lg)', display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
         
         {/* Search */}
         <div style={{ position: 'relative', flex: 1, minWidth: '260px' }}>
@@ -195,7 +195,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Table Container */}
-      <div className="glass" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', padding: 0 }}>
+      <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', padding: 0 }}>
         {loading ? (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '5rem 0', gap: '1rem' }}>
             <div className="skeleton-loader" style={{ width: '40px', height: '40px', borderRadius: '50%' }}></div>
@@ -297,7 +297,7 @@ const AdminDashboard = () => {
           border: 1px solid rgba(239, 68, 68, 0.4);
           background: transparent;
           color: #ef4444;
-          transition: all 0.2s;
+          transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .btn-outline-danger:hover:not(:disabled) {
           background: #ef4444;
