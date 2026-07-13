@@ -38,6 +38,13 @@ export const AuthProvider = ({ children }) => {
           console.error("Failed to parse stored auth user", e);
           logout();
         }
+      } else {
+        // Mismatched or empty storage - ensure all local states and headers are cleared
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setToken(null);
+        setUser(null);
+        delete axios.defaults.headers.common['Authorization'];
       }
       setLoading(false);
     };
@@ -79,6 +86,12 @@ export const AuthProvider = ({ children }) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
       return userData;
     } catch (error) {
+      if (error.response?.data?.errors) {
+        const fieldErrors = Object.entries(error.response.data.errors)
+          .map(([field, msg]) => `${field}: ${msg}`)
+          .join(', ');
+        throw `Validation Failed - ${fieldErrors}`;
+      }
       throw error.response?.data?.message || 'Login failed. Please try again.';
     } finally {
       setLoading(false);
@@ -90,6 +103,12 @@ export const AuthProvider = ({ children }) => {
     try {
       await axios.post('/auth/register', { name, email, password, role, companyName });
     } catch (error) {
+      if (error.response?.data?.errors) {
+        const fieldErrors = Object.entries(error.response.data.errors)
+          .map(([field, msg]) => `${field}: ${msg}`)
+          .join(', ');
+        throw `Validation Failed - ${fieldErrors}`;
+      }
       throw error.response?.data?.message || 'Registration failed. Please check inputs.';
     } finally {
       setLoading(false);
