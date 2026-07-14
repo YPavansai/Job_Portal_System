@@ -86,10 +86,9 @@ public class WebSecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // Explicitly allow specific frontend URLs (localhost and Render sites)
-        configuration.setAllowedOrigins(Arrays.asList(
-            "http://localhost:5173",
-            "http://localhost:3000",
-            "http://127.0.0.1:5173",
+        configuration.setAllowedOriginPatterns(Arrays.asList(
+            "http://localhost:*",
+            "http://127.0.0.1:*",
             "https://job-portal-system-2.onrender.com",
             "https://job-portal-system-1-vs18.onrender.com"
         ));
