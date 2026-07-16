@@ -32,6 +32,13 @@
 set -euf
 [ "${MVNW_VERBOSE-}" != debug ] || set -x
 
+# Auto-detect JDK 17 on Windows for Git Bash/Cygwin/MSYS environments
+if [ -z "${JAVA_HOME-}" ] && [ -d "/c/Program Files/Java/jdk-17" ]; then
+  JAVA_HOME="/c/Program Files/Java/jdk-17"
+elif [ -z "${JAVA_HOME-}" ] && [ -d "/cygdrive/c/Program Files/Java/jdk-17" ]; then
+  JAVA_HOME="/cygdrive/c/Program Files/Java/jdk-17"
+fi
+
 # OS specific support.
 native_path() { printf %s\\n "$1"; }
 case "$(uname)" in
